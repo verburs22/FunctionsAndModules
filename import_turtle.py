@@ -2,6 +2,8 @@
 
 import turtle
 from math import radians, cos
+from turtle import Screen
+
 
 # turtle.pendown()
 # turtle.forward(100)
@@ -23,19 +25,22 @@ def encircle(length: int) -> None:
 
 
 def square(length: int) -> None:
-   for side in range(4):
-        turtle.forward(length)
-        turtle.right(90)
+    inner_forward = turtle.forward
+    inner_right = turtle.right
+    for side in range(4):
+        inner_forward(length)
+        inner_right(90)
 
 #main
 
-# turtle.speed('fast')
-# for s in range(72):
-#     encircle(120)
-#     turtle.left(5)
+turtle.speed('fast')
+Screen().tracer(0) #disable turtle animation
+for s in range(72):
+    encircle(120)
+    turtle.left(5)
 
-#encircle(300)
-# turtle.done()
+Screen().update()
+turtle.done()
 
 print(dir())
 print(globals()['square'])
